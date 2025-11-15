@@ -27,7 +27,17 @@ int main() {
     int time = 1;
 
     while (!tollbooth.empty()) {
+        cout << "\nTime " << time << ":\n";
 
+        int action = rand() % 2;
+        
+        if (action == 0) {
+            Car newCar;
+            tollbooth.push_back(newCar);
+            cout << "    New car arrived: ";
+            newCar.print();
+            break;
+        }
     }
 
 

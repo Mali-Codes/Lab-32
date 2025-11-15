@@ -30,13 +30,18 @@ int main() {
         cout << "\nTime " << time << ":\n";
 
         int action = rand() % 2;
-        
+
         if (action == 0) {
             Car newCar;
             tollbooth.push_back(newCar);
             cout << "    New car arrived: ";
             newCar.print();
-            break;
+            tollbooth.push_back(newCar);
+        }
+        else {
+            cout << "Paid toll: ";
+            tollbooth.front().print();
+            tollbooth.pop_front(); // take it out 
         }
     }
 

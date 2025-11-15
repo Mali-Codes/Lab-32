@@ -9,15 +9,27 @@ const int initalSize = 2;
 int main() {
     srand(time(0));
 
-    deque<Car> carDeque;
+    deque<Car> tollbooth;
 
     for (int i = 0; i < initalSize; i++) {
         Car c;
-        carDeque.push_back(c);
+        tollbooth.push_back(c);
     }
 
     cout << "Start queue" << endl;
     
+    for (auto& car : tollbooth) {
+        cout << "    ";
+        car.print();
+    }
+
+
+    int time = 1;
+
+    while (!tollbooth.empty()) {
+
+    }
+
 
 }
 

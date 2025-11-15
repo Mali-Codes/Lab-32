@@ -43,6 +43,14 @@ int main() {
             tollbooth.front().print();
             tollbooth.pop_front(); // take it out 
         }
+        time ++;
+
+        cout << "Queue: \n";
+
+        for (auto& car : tollbooth) {
+            cout << "    ";
+            car.print();
+        }
     }
 
 

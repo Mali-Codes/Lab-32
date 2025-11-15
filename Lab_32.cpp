@@ -36,23 +36,29 @@ int main() {
             tollbooth.push_back(newCar);
             cout << "    New car arrived: ";
             newCar.print();
-            tollbooth.push_back(newCar);
         }
         else {
             cout << "Paid toll: ";
             tollbooth.front().print();
             tollbooth.pop_front(); // take it out 
         }
-        time ++;
 
         cout << "Queue: \n";
 
-        for (auto& car : tollbooth) {
-            cout << "    ";
-            car.print();
+        if (tollbooth.empty()) {
+            cout << "empty queue \n";
+        } else {
+            for (auto& car : tollbooth) {
+                cout << "    ";
+                car.print();
+            }
         }
+        
+        time ++;
+    
     }
 
+    return 0;
 
 }
 

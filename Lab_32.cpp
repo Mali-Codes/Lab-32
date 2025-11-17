@@ -16,21 +16,45 @@ void fourlanes() {
     deque<Car> tollbooth[lanes];
 
     for (int i = 0; i < lanes; i++) {
-        for (int j = 0; j > initalQueue; j++) {
+        for (int j = 0; j < initalQueue; j++) {
             Car c;
             tollbooth[i].push_back(c);
         }
+    }
+
+    for (int i = 0; i < lanes; i++) {
+        cout << "  Lane " << i << ": " << tollbooth[i].size() << " cars \n";
     }
 
     cout << "Created" << lanes << "lanes" << endl;
 
     cout << "test the queue" << endl;
 
-    //lanes[2].front().print();
+    cout << "First car in lane 2: ";
+    tollbooth[2].front().print();
 
+    cout << "First car in lane 0: ";
+    tollbooth[0].front().print();
 }
 
+void testprobabilities() {
+    const int lanes = 4;
+    const int initalQueue = 2;
+    const double payTollProb = 46;
+    const double newCarProb = 39;
+    const double laneSwitchProb = 15;
 
+    deque<Car> tollbooth[lanes];
+
+    for (int i = 0; i < lanes; i++) {   // from 4 lanes function
+        for (int j = 0; j < initalQueue; j++) {
+            Car c;
+            tollbooth[i].push_back(c);
+        }
+    }
+
+    
+}
 
 
 

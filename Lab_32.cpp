@@ -61,28 +61,33 @@ void testprobabilities() {
     cout << "siming one time period";
 
     for (int i = 0; i < lanes; i++) {
-        int action = rand() % 2;
-        if (action == 0) {
+        if (tollbooth[1].empty()){
+            
+            int action = rand() % 2;
+
+                if (action == 0) {
+                    Car newCar;
+                    tollbooth[i].push_back(newCar);
+                    cout << "New car joined\n";
+                } else {
+                    cout << "No action\n";
+                }
+                continue;
+            }
+    }
+
+        int randValue = rand() % 100 ;
+
+        if (randValue < payTollProb) {
+            cout << "toll paid";
+            tollbooth[i].pop_front();
+        } 
+        else if (randValue < payTollProb + newCarProb) {
+            cout << "New car joined" << randValue;
             Car newCar;
             tollbooth[i].push_back(newCar);
-            cout << "New car joined\n";
-        } else {
-            cout << "No action\n";
+
         }
-    }
-
-    int randVlaue = rand() % 99 ;
-
-    if (randValue < payTollProb) {
-        cout << "toll paid";
-        tollbooth[i].pop_front();
-    } 
-    else if (randVlaue < payTollProb + newCarProb) {
-        cout << "New car joined" << randVlaue;
-        Car newCar;
-        tollbooth[i].push_back(newCar);
-        
-    }
 }
 
 

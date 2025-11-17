@@ -157,14 +157,100 @@ int main() {
     }
 
     int time = 1;
+// movement
+    while (time <= MaxTime) {
+        for (int i = 0; i < lanes; i++) {
+            cout << "Lane " << i << ": ";  
+        
+        if (tollbooth[i].empty()) {
+                int action = rand() % 2;
+                if (action == 0) {
+                    Car newCar;
+                    tollbooth[i].push_back(newCar);
+                    cout << "New car joined empty lane\n";
+                    cout << "    ";
+                    newCar.print();
+                } else {
+                    cout << "No action (empty lane)\n";
+                }
+                continue;  // Skip to next lane
+            }
+        if (tollbooth[i].empty()){
+            
+            int action = rand() % 2;
 
-    while (time)
+            if (action == 0) {
+                Car newCar;
+                tollbooth[i].push_back(newCar);
+                cout << "New car joined \n";
+            } else {
+                cout << "No action\n";
+            }
+            continue;
+            }
+    
+
+        int randValue = rand() % 100 ;
+
+        if (randValue < payTollProb) {
+            cout << "toll paid " << randValue << "\n";
+            tollbooth[i].pop_front();
+        } 
+        else if (randValue < payTollProb + newCarProb) {
+            cout << "New car joined" << randValue << "\n";
+            Car newCar;
+            tollbooth[i].push_back(newCar);
+
+        }
+        else {
+            cout << "Car switching lane " << randValue<< "\n";
+
+            int newLane = rand() % lanes;
+            while (newLane == i) {
+                newLane = rand() % lanes;
+            }
+
+            Car switchingCar = tollbooth[i].back();
+            tollbooth[i].pop_back();
+            tollbooth[newLane].push_back(switchingCar);
+
+            cout << " switched from lane " << i << " to lane " << newLane<< "\n";
+        }
+    }
+
+    cout << "after p1 \n";
+
+    for (int i = 0; i < lanes; i++) {
+
+        cout << "Lane " << i << ": " << tollbooth[i].size() << " cars \n";
+    }
+}
+            
+            
+
+        
+        
+        
+        
+        
+        
+        return 0;
+        
+        
+        
+        
+        
+        
+        
+        }
+
+
+        
 
 
     
-    return 0;
+    
 
-}
 
 // int time = 1;
 

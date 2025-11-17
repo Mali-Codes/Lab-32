@@ -61,7 +61,10 @@ void testprobabilities() {
     cout << "siming one time period";
 
     for (int i = 0; i < lanes; i++) {
-        
+        int action = rand() % 2;
+        if (action == 0) {
+            tollbooth[i].pushback(newCar);
+        }
     }
 }
 

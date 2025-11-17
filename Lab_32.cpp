@@ -62,4 +62,9 @@ int main() {
 
 }
 
-// git teseting
+void fourlanes() {
+    cont int lanes = 4;
+    const int initalQueue = 2;
+
+    deque<Car> tollbooth[lanes];
+}

@@ -63,8 +63,20 @@ int main() {
 }
 
 void fourlanes() {
-    cont int lanes = 4;
+    const int lanes = 4;
     const int initalQueue = 2;
 
     deque<Car> tollbooth[lanes];
+
+    for (int i = 0; i < lanes; i++) {
+        for (int j = 0; j > initalQueue; j++) {
+            Car c;
+            tollbooth[i].push_back(c);
+        }
+    }
+
+    cout << "test the queue" << endl;
+
+    lanes[0].front().print();
+
 }

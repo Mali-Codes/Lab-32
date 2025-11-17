@@ -47,6 +47,7 @@ void testprobabilities() {
     deque<Car> tollbooth[lanes];
 
     for (int i = 0; i < lanes; i++) {   // from 4 lanes function
+
         for (int j = 0; j < initalQueue; j++) {
             Car c;
             tollbooth[i].push_back(c);
@@ -61,14 +62,16 @@ void testprobabilities() {
     cout << "siming one time period\n";
 
     for (int i = 0; i < lanes; i++) {
-        if (tollbooth[1].empty()){
+        cout << "Lane: " << i << ": ";
+
+        if (tollbooth[i].empty()){
             
             int action = rand() % 2;
 
             if (action == 0) {
                 Car newCar;
                 tollbooth[i].push_back(newCar);
-                cout << "New car joined\n";
+                cout << "New car joined \n";
             } else {
                 cout << "No action\n";
             }
@@ -79,7 +82,7 @@ void testprobabilities() {
         int randValue = rand() % 100 ;
 
         if (randValue < payTollProb) {
-            cout << "toll paid\n";
+            cout << "toll paid " << randValue << "\n";
             tollbooth[i].pop_front();
         } 
         else if (randValue < payTollProb + newCarProb) {
@@ -89,7 +92,7 @@ void testprobabilities() {
 
         }
         else {
-            cout << "Car switching lanes" << randValue<< "\n";
+            cout << "Car switching lane " << randValue<< "\n";
 
             int newLane = rand() % lanes;
             while (newLane == i) {
@@ -108,7 +111,7 @@ void testprobabilities() {
 
     for (int i = 0; i < lanes; i++) {
 
-        cout << "Lane " << i << ": " << tollbooth[i].size() << "cars \n";
+        cout << "Lane " << i << ": " << tollbooth[i].size() << " cars \n";
     }
 }
 

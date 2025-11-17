@@ -63,10 +63,29 @@ void testprobabilities() {
     for (int i = 0; i < lanes; i++) {
         int action = rand() % 2;
         if (action == 0) {
-            tollbooth[i].pushback(newCar);
+            Car newCar;
+            tollbooth[i].push_back(newCar);
+            cout << "New car joined\n";
+        } else {
+            cout << "No action\n";
         }
     }
+
+    int randVlaue = rand() % 99 ;
+
+    if (randValue < payTollProb) {
+        cout << "toll paid";
+        tollbooth[i].pop_front();
+    } 
+    else if (randVlaue < payTollProb + newCarProb) {
+        cout << "New car joined" << randVlaue;
+        Car newCar;
+        tollbooth[i].push_back(newCar);
+        
+    }
 }
+
+
 
 
 

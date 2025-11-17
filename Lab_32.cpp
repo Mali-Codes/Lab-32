@@ -190,60 +190,42 @@ int main() {
             }
     
 
-        int randValue = rand() % 100 ;
-
-        if (randValue < payTollProb) {
-            cout << "toll paid " << randValue << "\n";
-            tollbooth[i].pop_front();
-        } 
-        else if (randValue < payTollProb + newCarProb) {
-            cout << "New car joined" << randValue << "\n";
-            Car newCar;
-            tollbooth[i].push_back(newCar);
-
-        }
-        else {
-            cout << "Car switching lane " << randValue<< "\n";
-
-            int newLane = rand() % lanes;
-            while (newLane == i) {
-                newLane = rand() % lanes;
+        int randValue = rand() % 100;
+            
+            if (randValue < payTollProb) {
+                cout << "toll paid " <<  "\n";
+                tollbooth[i].pop_front();
+            } 
+            else if (randValue < payTollProb + newCarProb) {
+                cout << "New car joined " << "\n";
+                Car newCar;
+                tollbooth[i].push_back(newCar);
             }
-
-            Car switchingCar = tollbooth[i].back();
-            tollbooth[i].pop_back();
-            tollbooth[newLane].push_back(switchingCar);
-
-            cout << " switched from lane " << i << " to lane " << newLane<< "\n";
+            else {
+                cout << "Car switching lane "  << "\n";
+                
+                int newLane = rand() % lanes;
+                while (newLane == i) {
+                    newLane = rand() % lanes;
+                }
+                
+                Car switchingCar = tollbooth[i].back();
+                tollbooth[i].pop_back();
+                tollbooth[newLane].push_back(switchingCar);
+                
+                cout << " switched from lane " << i << " to lane " << newLane << "\n";
+            }
         }
-    }
-
-    cout << "after p1 \n";
-
-    for (int i = 0; i < lanes; i++) {
-
-        cout << "Lane " << i << ": " << tollbooth[i].size() << " cars \n";
+        
+        
+        cout << "\n--- Current ---\n";
+        for (int i = 0; i < lanes; i++) {
+            cout << "Lane " << i << ": " << tollbooth[i].size() << " cars\n";
+        }
+        
+        time++;
     }
 }
-            
-            
-
-        
-        
-        
-        
-        
-        
-        return 0;
-        
-        
-        
-        
-        
-        
-        
-        }
-
 
         
 

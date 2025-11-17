@@ -6,6 +6,37 @@ using namespace std;
 
 const int initalSize = 2;
 
+
+
+
+void fourlanes() {
+    const int lanes = 4;
+    const int initalQueue = 2;
+
+    deque<Car> tollbooth[lanes];
+
+    for (int i = 0; i < lanes; i++) {
+        for (int j = 0; j > initalQueue; j++) {
+            Car c;
+            tollbooth[i].push_back(c);
+        }
+    }
+
+    cout << "Created" << lanes << "lanes" << endl;
+
+    cout << "test the queue" << endl;
+
+    //lanes[2].front().print();
+
+}
+
+
+
+
+
+
+
+
 int main() {
     srand(time(0));
 
@@ -58,25 +89,9 @@ int main() {
     
     }
 
+    fourlanes();
+
     return 0;
 
 }
 
-void fourlanes() {
-    const int lanes = 4;
-    const int initalQueue = 2;
-
-    deque<Car> tollbooth[lanes];
-
-    for (int i = 0; i < lanes; i++) {
-        for (int j = 0; j > initalQueue; j++) {
-            Car c;
-            tollbooth[i].push_back(c);
-        }
-    }
-
-    cout << "test the queue" << endl;
-
-    lanes[0].front().print();
-
-}

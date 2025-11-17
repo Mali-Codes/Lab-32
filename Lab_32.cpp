@@ -137,10 +137,10 @@ int main() {
 
     srand(time(0));
 
-    deque<Car> tollbooth;
+    deque<Car> tollbooth[lanes];
 
     for (int i = 0; i < lanes; i++) { // fill lines with 2
-        for (int j = 0; j < initialSize; j++) {
+        for (int j = 0; j < initalSize; j++) {
             Car c;
             tollbooth[i].push_back(c);
         }
@@ -148,10 +148,17 @@ int main() {
 
     cout << "Start queue" << endl;
     
-    for (auto& car : tollbooth) {
-        cout << "    ";
-        car.print();
+    for (int i = 0; i < lanes; i++) {           //similar form to every othr time we have displayed the lanes
+        cout << "Lane " << i << ": " << tollbooth[i].size() << " cars\n";
+        for (auto& car : tollbooth[i]) {
+            cout << "    ";
+            car.print();
+        }
     }
+
+    int time = 1;
+
+    while (time)
 
 
     
